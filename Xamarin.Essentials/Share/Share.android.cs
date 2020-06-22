@@ -51,6 +51,11 @@ namespace Xamarin.Essentials
                 intent.PutExtra(Intent.ExtraTitle, request.Title);
             }
 
+            if (!string.IsNullOrEmpty(request.Text))
+            {
+                intent.PutExtra(Intent.ExtraText, request.Text);
+            }
+
             var chooserIntent = Intent.CreateChooser(intent, request.Title ?? string.Empty);
             var flags = ActivityFlags.ClearTop | ActivityFlags.NewTask;
             chooserIntent.SetFlags(flags);

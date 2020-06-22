@@ -57,15 +57,17 @@ namespace Xamarin.Essentials
         {
         }
 
-        public ShareFileRequest(string title, ShareFile file)
+        public ShareFileRequest(string title, string text, ShareFile file)
         {
             Title = title;
+            Text = text;
             File = file;
         }
 
-        public ShareFileRequest(string title, FileBase file)
+        public ShareFileRequest(string title, string text, FileBase file)
         {
             Title = title;
+            Text = text;
             File = new ShareFile(file);
         }
 
@@ -80,6 +82,8 @@ namespace Xamarin.Essentials
         }
 
         public ShareFile File { get; set; }
+
+        public string Text { get; set; }
     }
 
     public class ShareFile : FileBase

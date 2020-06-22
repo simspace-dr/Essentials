@@ -46,6 +46,9 @@
                 <Label Text="Title (Optional)" />
                 <Entry Text="{Binding ShareFileTitle}" />
 
+                <Label Text="Message text (Optional)" />
+                <Entry Text="{Binding ShareFileText}" />
+
                 <Label Text="File Name:" />
                 <Entry Text="{Binding ShareFileAttachmentName}" />
                 <Label Text="File Contents:" />

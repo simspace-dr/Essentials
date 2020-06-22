@@ -17,6 +17,7 @@ namespace Samples.ViewModel
         string shareFileAttachmentContents;
         string shareFileAttachmentName;
         string shareFileTitle;
+        string shareFileText;
 
         public ICommand RequestCommand { get; }
 
@@ -70,6 +71,12 @@ namespace Samples.ViewModel
             set => SetProperty(ref shareFileTitle, value);
         }
 
+        public string ShareFileText
+        {
+            get => shareFileText;
+            set => SetProperty(ref shareFileText, value);
+        }
+
         public string ShareFileAttachmentContents
         {
             get => shareFileAttachmentContents;
@@ -113,6 +120,7 @@ namespace Samples.ViewModel
             await Share.RequestAsync(new ShareFileRequest
             {
                 Title = Title,
+                Text = ShareText ? ShareFileText : null,
                 File = new ShareFile(file),
                 PresentationSourceBounds = bounds.ToSystemRectangle()
             });

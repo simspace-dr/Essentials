@@ -192,13 +192,8 @@ namespace Xamarin.Essentials
             false;
 #endif
 
-        static int? sdkInt;
-
-        internal static int SdkInt
-            => sdkInt ??= (int)Build.VERSION.SdkInt;
-
         internal static bool HasApiLevel(BuildVersionCodes versionCode) =>
-            SdkInt >= (int)versionCode;
+            (int)Build.VERSION.SdkInt >= (int)versionCode;
 
         internal static CameraManager CameraManager =>
             AppContext.GetSystemService(Context.CameraService) as CameraManager;
@@ -232,7 +227,6 @@ namespace Xamarin.Essentials
             if (HasApiLevelN)
                 return config.Locales.Get(0);
 #endif
-
 #pragma warning disable CS0618 // Type or member is obsolete
             return config.Locale;
 #pragma warning restore CS0618 // Type or member is obsolete

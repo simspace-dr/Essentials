@@ -54,6 +54,11 @@ namespace Xamarin.Essentials
                 newRequest.Data.SetStorageItems(new IStorageItem[] { storageFile });
                 newRequest.Data.Properties.Title = request.Title ?? AppInfo.Name;
 
+                if (!string.IsNullOrWhiteSpace(request.Text))
+                {
+                    newRequest.Data.SetText(request.Text);
+                }
+
                 dataTransferManager.DataRequested -= ShareTextHandler;
             }
         }
